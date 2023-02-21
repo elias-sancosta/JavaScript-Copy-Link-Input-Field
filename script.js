@@ -1,0 +1,13 @@
+const inputField = document.querySelector('.copy-link-input');
+const copyButton = document.querySelector('.copy-link-button');
+
+inputField.addEventListener('focus', () => inputField.select());
+
+copyButton.addEventListener('click', () => {
+  const text = inputField.value;
+  inputField.select();
+  navigator.clipboard.writeText(text);
+
+  inputField.value = 'Copied!';
+  setTimeout(() => (inputField.value = text), 1200);
+});
